@@ -248,6 +248,7 @@ resource "aws_cloudfront_distribution" "default" {
 
     forwarded_values {
       query_string = var.forward_query_string
+      query_string_cache_keys = var.forward_query_string_cache_keys
       headers      = var.forward_header_values
 
       cookies {
@@ -284,6 +285,7 @@ resource "aws_cloudfront_distribution" "default" {
 
       forwarded_values {
         query_string = ordered_cache_behavior.value.forward_query_string
+        query_string_cache_keys = var.forward_query_string_cache_keys
         headers      = ordered_cache_behavior.value.forward_header_values
 
         cookies {

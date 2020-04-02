@@ -172,6 +172,12 @@ variable "forward_query_string" {
   description = "Forward query strings to the origin that is associated with this cache behavior"
 }
 
+variable "forward_query_string_cache_keys" {
+  type        = list(string)
+  description = "A list of whitelisted query kyes values to forward to the origin and cache"
+  default     = [""]
+}
+
 variable "cors_allowed_headers" {
   type        = list(string)
   default     = ["*"]
@@ -392,6 +398,7 @@ variable "ordered_cache" {
     max_ttl                = number
 
     forward_query_string  = bool
+    forward_query_string_cache_keys = list(string)
     forward_header_values = list(string)
     forward_cookies       = string
 
